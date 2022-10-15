@@ -17,6 +17,10 @@ const FormSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    Password:{
+        type:String,
+        required:true,
+    },
     Mobile:{
         type:String,
         required:true,
@@ -43,7 +47,7 @@ const FormSchema = new mongoose.Schema({
     },
     EndDate:{
         type:String,
-        required:true,
+        // required:true,
     },
     Cgpa:{
         type:String,
