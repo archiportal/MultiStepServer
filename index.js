@@ -3,6 +3,8 @@ import mongoose, { get } from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import FormModel from './models/FormDetails.js';
+import * as dotenv from 'dotenv';
+dotenv.config()
 
 const app = express();
 app.use(bodyParser.json({limit:"30mb", extended:true}))
@@ -30,10 +32,11 @@ app.post("/postForm",async (req,res)=>{
 })
 
 const CONNECTION_URL = 'mongodb+srv://archi7:Aizawashota07@cluster0.9ieuikq.mongodb.net/mernFirst?retryWrites=true&w=majority';
+const PORT = process.env.PORT || 3001;
 mongoose.connect(CONNECTION_URL)
 .then(()=>{
-    app.listen(3001,()=>{
-        console.log(`Server connected to 3001`); 
+    app.listen(PORT,()=>{
+        console.log(`Server connected to ${PORT}`); 
     })
 })
 .catch((error)=>{
